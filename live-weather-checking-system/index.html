@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Worldwide live weather checking dashboard">
+  <title>SkyCast — Live Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">✦</span><span>skycast</span></a>
+      <div class="live-label"><span class="live-dot"></span> LIVE WEATHER WORLDWIDE</div>
+      <button class="location-button" id="locationBtn">◎ <span>Use my location</span></button>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+      <h1>Explore the weather<br><span>wherever you are.</span></h1>
+      <p class="hero-copy">Real-time conditions and forecasts for cities around the world.</p>
+      <form class="search-form" id="searchForm">
+        <span class="search-icon">⌕</span>
+        <input id="cityInput" type="search" placeholder="Search any city or area… (e.g. Chennai, Tokyo)" autocomplete="off" required>
+        <button type="submit" id="searchBtn">Search <span>→</span></button>
+      </form>
+      <div class="quick-cities">
+        <span>Popular:</span>
+        <button data-city="Chennai">Chennai</button>
+        <button data-city="Mumbai">Mumbai</button>
+        <button data-city="London">London</button>
+        <button data-city="New York">New York</button>
+        <button data-city="Tokyo">Tokyo</button>
+      </div>
+    </section>
+
+    <div class="status" id="status" role="status">Search for a city to see its latest weather.</div>
+
+    <section class="weather-layout" id="weatherContent" hidden>
+      <article class="current-card">
+        <div class="current-top">
+          <div><p class="card-kicker">CURRENT WEATHER</p><h2 id="placeName">—</h2><p class="place-meta" id="placeMeta">—</p></div>
+          <div class="weather-symbol" id="mainIcon">☀️</div>
+        </div>
+        <div class="temperature-row">
+          <div class="temperature" id="temperature">--°</div>
+          <div class="condition-wrap"><div class="condition" id="condition">—</div><div class="feels-like" id="feelsLike">Feels like —</div></div>
+        </div>
+        <div class="current-footer"><span id="localTime">Local time —</span><span id="updatedAt">Updated just now</span></div>
+      </article>
+
+      <article class="details-card">
+        <div class="section-heading"><div><p class="card-kicker">WEATHER DETAILS</p><h3>Today's conditions</h3></div><span class="detail-spark">✧</span></div>
+        <div class="metrics-grid">
+          <div class="metric"><span class="metric-icon">💧</span><div><small>Humidity</small><strong id="humidity">—</strong></div></div>
+          <div class="metric"><span class="metric-icon">💨</span><div><small>Wind speed</small><strong id="wind">—</strong></div></div>
+          <div class="metric"><span class="metric-icon">🌡️</span><div><small>Feels like</small><strong id="feelsMetric">—</strong></div></div>
+          <div class="metric"><span class="metric-icon">🧭</span><div><small>Pressure</small><strong id="pressure">—</strong></div></div>
+          <div class="metric"><span class="metric-icon">🌅</span><div><small>Sunrise</small><strong id="sunrise">—</strong></div></div>
+          <div class="metric"><span class="metric-icon">🌇</span><div><small>Sunset</small><strong id="sunset">—</strong></div></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="forecast-section" id="hourlySection" hidden>
+      <div class="section-heading"><div><p class="card-kicker">NEXT 24 HOURS</p><h3>Hourly forecast</h3></div><span class="muted-label">Temperature</span></div>
+      <div class="hourly-list" id="hourlyList"></div>
+    </section>
+
+    <section class="forecast-section" id="dailySection" hidden>
+      <div class="section-heading"><div><p class="card-kicker">PLAN AHEAD</p><h3>7-day forecast</h3></div><span class="muted-label">Daily outlook</span></div>
+      <div class="daily-list" id="dailyList"></div>
+    </section>
+
+    <footer><span>✦ skycast</span><span>Weather data provided by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Refresh for the latest conditions</span></footer>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>

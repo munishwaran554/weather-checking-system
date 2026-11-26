@@ -1,0 +1,9 @@
+{
+  "name": "live-weather-checking-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Worldwide live weather dashboard using Open-Meteo",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
